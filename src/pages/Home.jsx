@@ -1,12 +1,26 @@
-import React from 'react';
-import Form from '../components/Form';
+import React, { useState } from "react";
 
-// import { Container } from './styles';
+import { Container, List } from "@mui/material";
+import Form from "../components/Form";
+import TodoItem from "../components/TodoItem";
 
-function Home() {
-  return (
-    <Form/>
-  );
+export default function Home() {
+   const [todos, setTodos] = useState([]);
+
+   const addTodo = (todo) => {
+      setTodos([...todos, todo]);
+   };
+
+   return (
+      <Container maxWidth="sm" style={{ marginTop: "2em" }}>
+         <Form addTodo={ addTodo}/>
+         <List sx={{ marginTop: "1em" }}>
+            {todos.map((todo) => (
+               <div style={{marginTop: '1em'}} key={todo.id}>
+                  <TodoItem todo={todo}/>
+               </div>
+            ))}
+         </List>
+      </Container>
+   );
 }
-
-export default Home;

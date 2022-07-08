@@ -1,9 +1,18 @@
+import React, { useState } from "react";
+
 import { Button, Paper, TextField } from "@mui/material";
-import React from "react";
 
-// import { Container } from './styles';
+export default function Form({addTodo}) {
+   const [text, setText] = useState("");
+   const [id, setId] = useState(0);
+   
+   const todoCreate = (text) => {
+      const todoObj = { text: text, id: id};
+      setId(id + 1);
+      console.log(todoObj)
+      addTodo(todoObj)
+   }
 
-function Form() {
    return (
       <Paper style={{ padding: "1em" }} elevation={10}>
          <div style={{ display: "flex", justifyContent: "center" }}>
@@ -12,11 +21,11 @@ function Form() {
                label="Task"
                variant="outlined"
                fullWidth
+               onChange={(e)=> setText(e.target.value)}
             />
-            <Button>Add</Button>
+            <Button variant="text" onClick={() => todoCreate(text)}>Add</Button>
          </div>
       </Paper>
    );
 }
 
-export default Form;
