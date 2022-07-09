@@ -7,6 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #d5d2d8;
 }
+.css-et1ao3-MuiTypography-root{
+  font-size: 1.2em !important;
+  font-family: 'sans-serif' 'Roboto' !important;
+   
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  font-size: 1.2em !important;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
